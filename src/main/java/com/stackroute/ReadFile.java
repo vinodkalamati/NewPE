@@ -10,8 +10,8 @@ public class ReadFile {
 
     }
 
-    public boolean isUpperCase(){
-        return true;
+    public String UpperCaseCheck(){
+        return null;
     }
     public int length_of_the_file(){
         return 0;

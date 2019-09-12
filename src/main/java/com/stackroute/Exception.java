@@ -7,8 +7,9 @@ class FirstException {
     }
 }
 
-public class Exception{
-    public static void main(String args[]){
+public class Exception extends Throwable {
 
+
+    public void main() {
     }
 }

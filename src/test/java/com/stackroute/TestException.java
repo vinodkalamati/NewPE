@@ -4,6 +4,9 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import static org.junit.Assert.*;
 
 public class TestException {
@@ -19,7 +22,20 @@ public class TestException {
     }
 
     @Test
-    public void TestingException(){
+    public void TestingException_throwsException_PrintErrorMessage(){
+        _exception.main();
+        ByteArrayOutputStream Printcontent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(Printcontent));
+        assertEquals("Finally block has to executed", "message:Error.....",Printcontent.toString());
+    }
 
+    @Test
+    public void TestingException_throwsException_PrintErrorMessageFailure(){
+        _exception.main();
+        ByteArrayOutputStream PrintContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(PrintContent));
+        assertNotEquals("Execute finally block", "message:Error.....",PrintContent.toString());
+
+        assertNotNull("Failure",PrintContent.toString());
     }
 }
